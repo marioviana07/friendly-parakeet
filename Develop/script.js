@@ -111,14 +111,14 @@ function generatePassword() {
   var upperCases = confirm("Would you like to use uppercase letters?");
   var lowerCases = confirm("Would you like to use lowercase letters?");
   var numbers = confirm("Would you like to use numbers?");
-  var specialCharacters = confirm("Would you like to use special characters?");
+  var symbols = confirm("Would you like to use special characters?");
 
   while (!upperCases && !lowerCases && !numbers && !specialCharacters) {
     alert("You must select at least one character type!");
     upperCases = confirm("Would you like to use uppercase letters?");
     lowerCases = confirm("Would you like to use lowercase letters?");
     numbers = confirm("Would you like to use numbers?");
-    specialCharacters = confirm("Would you like to use special characters?");
+    symbols = confirm("Would you like to use special characters?");
   }
   // Minimum count for numbers, lowerCases, upperCases & specialCharacters
   var minimumCount = 0;
@@ -146,13 +146,13 @@ function generatePassword() {
       return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
     },
 
-    getspecialCharacters: function () {
+    getsymbols: function () {
       return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
     }
 
   };
 
-  // Checks to make sure user selected ok for all and uses empty minimums from above
+  //selected ok for all and uses empty minimums from above
 
   if (numbers === true) {
     minimumNumbers = functionArray.getNumbers();
@@ -172,8 +172,8 @@ function generatePassword() {
 
   }
 
-  if (specialCharacters === true) {
-    minimumspecialCharacters = functionArray.getspecialCharacters();
+  if (symbols === true) {
+    minimumspecialCharacters = functionArray.getsymbols();
     minimumCount++;
 
   }
